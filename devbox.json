@@ -1,0 +1,38 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.12.0/.schema/devbox.schema.json",
+  "packages": [
+    "pandoc@latest",
+    "texlive.combined.scheme-full@latest",
+    "gnumake@latest",
+    "python@latest"
+  ],
+  "env": {
+    "VENV_DIR": ".venv"
+  },
+  "shell": {
+    "init_hook": [
+      "if [ ! -d \"$VENV_DIR\" ]; then",
+      "  python -m venv \"$VENV_DIR\";",
+      "  . \"$VENV_DIR/bin/activate\";",
+      "  pip install -qqq --upgrade pip;",
+      "  pip install -qqq -r requirements.txt || true;",
+      "else",
+      "  . \"$VENV_DIR/bin/activate\";",
+      "  pip install -qqq -r requirements.txt || true;",
+      "fi"
+    ],
+    "scripts": {
+      "test": [
+        "echo 'Devbox Environment Test'",
+        "command -v make >/dev/null && echo 'make ok' || exit 1",
+        "command -v pandoc >/dev/null && echo 'pandoc ok' || exit 1",
+        "command -v xelatex >/dev/null && echo 'xelatex ok' || exit 1",
+        "command -v python >/dev/null && echo 'python ok' || exit 1",
+        "make -n help >/dev/null && echo 'Makefile syntax ok' || exit 1",
+        "make -n build >/dev/null && echo 'build target ok' || exit 1"
+      ],
+      "build": ["make clean && make build"],
+      "make": ["make $@"]
+    }
+  }
+}
