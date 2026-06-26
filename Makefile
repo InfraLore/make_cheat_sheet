@@ -36,6 +36,6 @@ clean: ## Remove build artifacts
 	rm -rf $(BUILD)
 
 lint: ## Lint markdown with pymarkdownlnt
-	pymarkdownlnt scan cheatsheet.md
+	pymarkdownlnt --config .pymarkdownlint.json scan cheatsheet.md
 
 release: clean build ## Clean build for release
