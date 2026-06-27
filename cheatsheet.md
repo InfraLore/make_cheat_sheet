@@ -1,10 +1,3 @@
----
-title: "Make Cheat Sheet"
-mainfont: Merriweather-Regular
-monofont: DejaVu Sans Mono
-headingfont: Lato-Regular
----
-
 # Basics
 ```makefile
 target: prerequisites
