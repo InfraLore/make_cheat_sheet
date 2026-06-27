@@ -30,6 +30,7 @@ build: check-prereqs ## Generate PDF
 	pandoc --listings cheatsheet.md \
 	  -o $(BUILD)/$(OUTPUT) \
 	  --template=template.latex \
+	  --metadata-file metadata.yml \
 	  --pdf-engine=xelatex
 
 clean: ## Remove build artifacts
