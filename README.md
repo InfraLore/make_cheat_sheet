@@ -24,6 +24,10 @@ devbox shell
 make build
 ```
 
+ ## License
+
+[CC0 1.0 Universal](LICENSE) — public domain dedication.
+
 ## Fonts
 
 The PDF uses Merriweather (body), DejaVu Sans Mono (code), and Lato (headings).
